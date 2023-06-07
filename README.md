@@ -21,13 +21,19 @@ Data for this project was obtained by scraping Zoom stock price information and 
 The raw data obtained underwent a thorough extraction, transformation, and loading (ETL) process to prepare it for analysis. This included cleaning the data, dealing with missing values, and formatting the data into a usable format for subsequent analysis.
 
 
+### Twitter Sentiment Model used:
+RoBERTa, a transformer-based machine learning technique for natural language understanding. I used the Cardiff RoBERTa latest model as twitter was the main data that was used to train it.
+
+
 ### Model Training:
-A RoBERTa model, a transformer-based machine learning technique for natural language understanding, was fine-tuned to gauge the sentiment of the tweets. This involved training the model to understand the language nuances within the context of financial data.
+After finding that the model misunderstood financial jargon, I fine-tuned the model to better label the sentiment of financial tweets. This involved training the model to understand the language nuances within the context of financial data.
 
 ### Data Timeline:
 The data used in this project spanned from 2019 to December 2022, encapsulating both pre-pandemic and pandemic-era data, which provided a rich, diverse dataset for this project.
 
 ### Processing with CUDA:
+Initially using CPU to run the RoBERTa model was too slow. Taking about 3 days for sentiment analysis of 1500 tweets. The total number of tweets at 300k will take 600 days! (Which is unacceptable)
+
 Given the substantial size of the data - around 300k tweets, CUDA was leveraged for faster processing times, making the data handling process more efficient.
 
 ### Results:
@@ -39,5 +45,7 @@ While the project has provided insightful results, there is ample room for futur
 The fine-tuning process for RoBERTa could be adapted to handle more financial data, and the web application could be further generalized to analyze any company's stock based on its name and symbol.
 
 Another promising avenue for future research could involve the application of time series machine learning models to predict future stock prices based on sentiment analysis. Additionally, the sentiment analysis could be expanded beyond Twitter to other social media platforms like Reddit, Facebook, Instagram, and TikTok, which host substantial discussions about stock trading.
+
+One very interesting direction for future research is to have a specific target for sentiment analysis. For this project, only the general sentiment of the tweets were considered. So a tweet that specified very good news for another stock, but negative for the zoom stock price, RoBERTa will label it as positive sentiment. This can be corrected by modifying the use of RoBERTa (or other sentiment analysis models.) this is done by specifying 'find the sentiment analysis of Zoom Stock PRICE'. Once this is done, we can find a much better sentiment analysis of each tweet.
 
 In conclusion, this paper provides a compelling exploration of the relationship between social media sentiment and stock price changes. Further work in this area could lead to a new understanding of the influences that drive the stock market.

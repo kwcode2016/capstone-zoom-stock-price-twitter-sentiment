@@ -22,7 +22,7 @@ Zoom was chosen due to its highly volatile stock price over the past few years a
 
 
 ### Conda Env List
-[Conva Env List](./conda_env.txt)
+Here are the list of packages and version used for this project: [Conva Env List](./conda_env.txt)
 
 ### Data Acquisition:
 Data for this project was obtained by scraping Zoom stock price information and corresponding tweets about Zoom. It's important to note that scraping data from both Twitter and stock price websites have become more challenging due to changes in these platforms' data access policies and need new ways to acquire this data.

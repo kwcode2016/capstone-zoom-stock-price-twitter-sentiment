@@ -21,6 +21,9 @@ In the past four years, Zoom has seen a significant rise and fall in its stock p
 Zoom was chosen due to its highly volatile stock price over the past few years and the significant volume of related tweets. The drastic swings in stock price and the considerable chatter on Twitter present an intriguing case study for examining the possible links between social media sentiment and stock market performance.
 
 
+### Conda Env List
+[Conva Env List](./conda_env.txt)
+
 ### Data Acquisition:
 Data for this project was obtained by scraping Zoom stock price information and corresponding tweets about Zoom. It's important to note that scraping data from both Twitter and stock price websites have become more challenging due to changes in these platforms' data access policies and need new ways to acquire this data.
 

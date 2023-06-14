@@ -27,17 +27,25 @@ Here are the list of packages and version used for this project: [Conva Env List
 ### Data Acquisition:
 Data for this project was obtained by scraping Zoom stock price information and corresponding tweets about Zoom. It's important to note that scraping data from both Twitter and stock price websites have become more challenging due to changes in these platforms' data access policies and need new ways to acquire this data.
 
+[Getting the Zoom Stock Price Data](code/1a-zm-stock-prices.py)
+[Getting the Zoom Tweets Data](code/2a-twitter-zoom-stock-tweets.py)
 
 ### Data Processing (ETL):
 The raw data obtained underwent a thorough extraction, transformation, and loading (ETL) process to prepare it for analysis. This included cleaning the data, dealing with missing values, and formatting the data into a usable format for subsequent analysis.
+
+[Cleaning Tweet preparing for roBERTa sentiment model](code/3a-tweet-cleaning.py)
 
 
 ### Twitter Sentiment Model used:
 RoBERTa, a transformer-based machine learning technique for natural language understanding. I used the Cardiff RoBERTa latest model as twitter was the main data that was used to train it.
 
+[Twitter roBERTa base for Sentiment Analysis](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest)
+
 
 ### Model Training:
 After finding that the model misunderstood financial jargon, I fine-tuned the model to better label the sentiment of financial tweets. This involved training the model to understand the language nuances within the context of financial data.
+
+[Finetuning roBERTa to better classify tweets with financial jargon](code/4b-Finetuning-Roberta-Saving-Model-SCRIPT.py)
 
 ### Data Timeline:
 The data used in this project spanned from 2019 to December 2022, encapsulating both pre-pandemic and pandemic-era data, which provided a rich, diverse dataset for this project.
@@ -48,7 +56,7 @@ Initially using CPU to run the RoBERTa model was too slow. Taking about 3 days f
 Given the substantial size of the data - around 300k tweets, CUDA was leveraged for faster processing times, making the data handling process more efficient.
 
 ### Results:
-Through the created web application, users can explore the relationship between the 7-day average of positive, negative, and neutral Twitter sentiment and Zoom's stock price.
+Through the created web application, users can explore the relationship between the daily counts of  positive, negative, and neutral Twitter sentiment and Zoom's stock price.
 
 ### Future Directions:
 While the project has provided insightful results, there is ample room for future enhancements. Applying more sophisticated machine learning techniques could help uncover deeper correlations between Twitter sentiment and stock price. The model could also be expanded to encompass more than just Zoom, by identifying and analyzing tweets related to other stocks.

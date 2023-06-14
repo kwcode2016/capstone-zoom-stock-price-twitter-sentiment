@@ -1,3 +1,10 @@
+# Summary: Using roBERTa to Label 300K Tweets
+# Step 1: load the 300k Zoom Stock Tweets
+# Step 2: Load the finetuned roBERTa model
+# Step 3: Run the model on CUDA
+# Step 4: Save the output to file for the webapp
+
+
 import pandas as pd
 
 # Load 300K Tweets zm-6-2019-04-01-2022-12-11-all-zm-tweets.jsonl
@@ -29,13 +36,7 @@ print("CUDA available:" if cuda_available else "CUDA not available")
 # Load the RoBERTa tokenizer and model
 model_name = f'cardiffnlp/twitter-roberta-base-sentiment-latest'
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-# model = AutoModelForSequenceClassification.from_pretrained(model_name).to("cuda" if cuda_available else "cpu")
 model = RobertaForSequenceClassification.from_pretrained(path).to("cuda" if cuda_available else "cpu")
-
-# breakpoint()
-
-# Create a list of 17,000 sample texts (replace this with your actual data)
-# texts = ["Sample text {}".format(i) for i in range(17000)] #commented out to use my own text
 
 # Set the batch size (you may need to adjust this based on your GPU memory)
 batch_size = 32
@@ -48,14 +49,11 @@ def classify_sentiment(texts_batch):
     with torch.no_grad():
         logits = model(**encoded_input).logits
     probabilities = torch.softmax(logits, dim=1)
-    # print(probabilities) #shows all the probabilties lists
-    # labels = ["NEGATIVE" if p < 0.5 else "POSITIVE" for p in probabilities[:, 1]]
     max_indices = torch.argmax(probabilities, dim=1)
     # Map indices to labels
     labels_map = {0: 'negative', 1: 'neutral', 2: 'positive'}
     labels = [labels_map[index.item()] for index in max_indices]
     return labels
-    # return probabilities
 
 # Process the texts in batches
 sentiments = []

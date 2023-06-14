@@ -1,3 +1,8 @@
+# Summary: Get Zoom Stock Prices between target dates
+# using pandas_datareader.DataReader to obtain all the stock prices for the zoom stock
+
+
+
 import pandas_datareader.data as web
 import pandas as pd
 import datetime as dt

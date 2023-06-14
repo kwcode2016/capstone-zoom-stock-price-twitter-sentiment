@@ -1,3 +1,10 @@
+# Summary: Finetuning the roBERTa model for the specific purpose of Zoom Tweet Sentiment Labeling 
+# Function to use: Trainer from the transformers module
+# Step 1: have a labelled data that were initially labelled wrong.  ../data/4a-zoom-tweets-manually-labelled.csv
+# Step 2: Setup the variables needed for Trainer
+# Step 3: Run Trainer
+# Step 4: Save the new Model for the main Sentiment Labelling of 300K Zoom Tweets
+
 import pandas as pd
 import torch
 from transformers import RobertaTokenizer, RobertaForSequenceClassification, Trainer, TrainingArguments
@@ -10,7 +17,8 @@ print(torch.cuda.is_available())
 
 
 # Load fine tuning data 1.3k manually labelled zoom tweets
-df = pd.read_csv('zoom-sentiment-finetuning-sheet.csv')
+# df = pd.read_csv('zoom-sentiment-finetuning-sheet.csv')
+df = pd.read_csv('../data/4a-zoom-tweets-manually-labelled.csv')
 
 
 # checking data and any missing values 

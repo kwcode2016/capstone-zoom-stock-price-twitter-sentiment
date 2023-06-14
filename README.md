@@ -55,8 +55,12 @@ Initially using CPU to run the RoBERTa model was too slow. Taking about 3 days f
 
 Given the substantial size of the data - around 300k tweets, CUDA was leveraged for faster processing times, making the data handling process more efficient.
 
+[Processing Sentiment Labelling Using CUDA for 300k Tweets for ZOOM](code/5a-roBERTa-latest-CUDA-enabled-processing-300k-tweets.py)
+
 ### Results:
 Through the created web application, users can explore the relationship between the daily counts of  positive, negative, and neutral Twitter sentiment and Zoom's stock price.
+
+[Resulting Data of 300K Tweets with Sentiment](https://github.com/kwcode2016/zoom-stock-twitter-sentiment-webapp/blob/main/full300k_w_r_latest_sentiment_with_finetuning.csv)
 
 ### Future Directions:
 While the project has provided insightful results, there is ample room for future enhancements. Applying more sophisticated machine learning techniques could help uncover deeper correlations between Twitter sentiment and stock price. The model could also be expanded to encompass more than just Zoom, by identifying and analyzing tweets related to other stocks.

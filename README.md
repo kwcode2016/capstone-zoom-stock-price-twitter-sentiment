@@ -6,7 +6,8 @@ Link to Webapp Github: https://github.com/kwcode2016/zoom-stock-twitter-sentimen
 
 Link to Webapp: https://kwcode2016-zoom-stock-twit-webapp-streamlit-twitter-zoom-2elx7b.streamlit.app/ 
 
-
+### Contact
+If you would like to collaborate with me, please do reach out to me at: [kwhome2002@gmail.com](kwhome2002@gmail.com) I look forward to hearing for you! 
 
 
 ### Abstract:
